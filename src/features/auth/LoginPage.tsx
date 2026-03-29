@@ -29,13 +29,22 @@ export default function LoginPage() {
       // const response = await apiClient.post('/auth/login', { email, password });
       // const { access_token, refresh_token } = response.data;
       
-      // MOCK LOGIN for demonstration
+      // MOCK LOGIN for testing
       console.log('Logging in with:', email, password);
       
       // Simulate API delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Mock tokens
+      // Hardcoded credentials for testing
+      if (email === 'veerbhadra0524@gmail.com' && password === 'Anshika_Patel') {
+        const access_token = 'mock_access_token_admin';
+        const refresh_token = 'mock_refresh_token_admin';
+        await login(access_token, refresh_token);
+        navigate(from, { replace: true });
+        return;
+      }
+      
+      // Default mock for other credentials
       const access_token = 'mock_access_token';
       const refresh_token = 'mock_refresh_token';
       

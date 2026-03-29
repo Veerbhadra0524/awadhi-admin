@@ -35,6 +35,32 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchMe = async () => {
+    const token = localStorage.getItem('auth_token');
+    
+    // Hardcoded mock users for testing
+    if (token === 'mock_access_token_admin') {
+      setUser({
+        id: 'admin-1',
+        email: 'veerbhadra0524@gmail.com',
+        username: 'veerbhadra',
+        role: 'admin',
+        permissions: ['*'],
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    if (token === 'mock_access_token') {
+      setUser({
+        id: 'user-1',
+        email: 'test@example.com',
+        username: 'testuser',
+        role: 'registered',
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const response = await apiClient.get('/auth/me');
       setUser(response.data);
