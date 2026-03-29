@@ -11,7 +11,10 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "electron:dev": "concurrently \"ELECTRON=true npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron:build": "ELECTRON=true npm run build && electron-builder"
+    "electron:build": "ELECTRON=true npm run build && electron-builder",
+    "android:init": "npx cap init \"Admin Command Center\" com.admin.commandcenter --web-dir dist && npx cap add android",
+    "android:sync": "npm run build && npx cap sync",
+    "android:open": "npx cap open android"
   },
   "build": {
     "appId": "com.admin.commandcenter",
@@ -45,6 +48,9 @@
     "vite": "^6.2.0"
   },
   "devDependencies": {
+    "@capacitor/android": "^8.3.0",
+    "@capacitor/cli": "^8.3.0",
+    "@capacitor/core": "^8.3.0",
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",

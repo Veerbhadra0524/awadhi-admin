@@ -1,0 +1,6 @@
+{
+  "appId": "com.admin.commandcenter",
+  "appName": "Admin Command Center",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
