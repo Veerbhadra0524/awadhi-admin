@@ -1,0 +1,5 @@
+{
+  "name": "Admin & Moderator Command Center",
+  "description": "A unified dashboard for system administrators and content moderators to manage users, settings, and submissions.",
+  "requestFramePermissions": []
+}
